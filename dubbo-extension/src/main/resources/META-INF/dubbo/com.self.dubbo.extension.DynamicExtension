@@ -1,0 +1,2 @@
+default=com.self.dubbo.extension.DefaultDynamicExtension
+other=com.self.dubbo.extension.OtherDynamicExtension

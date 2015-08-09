@@ -1,0 +1,3 @@
+default=com.self.dubbo.extension.DefaultMyExtension
+other=com.self.dubbo.extension.OtherMyExtension
+adaptive=com.self.dubbo.extension.AdaptiveMyExtension
