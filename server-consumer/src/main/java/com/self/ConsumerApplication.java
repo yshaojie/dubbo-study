@@ -26,7 +26,7 @@ public class ConsumerApplication {
         }
         final String msg = new String(data);
         System.out.println("msg======" + msg);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-demo-action.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-study-action.xml"});
         context.start();
         final DemoService demoService = (DemoService)context.getBean("demoService"); // 获取远程服务代理
         final AtomicInteger counter = new AtomicInteger(0);

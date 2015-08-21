@@ -13,7 +13,7 @@ public class ServerApplication {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("start ....");
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-demo-provider.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-study-provider.xml"});
         System.out.println("start up");
         context.start();
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {

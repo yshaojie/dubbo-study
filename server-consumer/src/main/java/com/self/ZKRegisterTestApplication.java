@@ -16,7 +16,7 @@ public class ZKRegisterTestApplication {
     final AtomicInteger counter = new AtomicInteger();
     final String name;
     public ZKRegisterTestApplication(int length) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-demo-action.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"dubbo-study-action.xml"});
         context.start();
         demoService = (DemoService)context.getBean("demoService"); // 获取远程服务代理
         //length kb 的数据

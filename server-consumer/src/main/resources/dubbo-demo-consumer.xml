@@ -21,7 +21,6 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
  <dubbo:application name="dubbo-test-consumer" />
  <dubbo:monitor protocol="registry" />
- <dubbo:consumer connections="10"/>
  <dubbo:reference id="demoService"  interface="com.self.api.DemoService"/>
     <!--
         建议写成这样子，

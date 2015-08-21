@@ -19,7 +19,7 @@
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <import resource="dubbo-demo-consumer.xml"></import>
+    <import resource="dubbo-study-consumer.xml"></import>
 	<!--<bean class="com.selfDemoAction" init-method="start">-->
 		<!--<property name="demoService" ref="demoService" />-->
 	<!--</bean>-->

@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.jyall</groupId>
-        <artifactId>dubbo-demo</artifactId>
+        <groupId>com.self</groupId>
+        <artifactId>dubbo-study</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.jyall</groupId>
+    <groupId>com.self</groupId>
     <artifactId>server-consumer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -18,7 +18,7 @@
             <artifactId>dubboj</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.jyall</groupId>
+            <groupId>com.self</groupId>
             <artifactId>server-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
