@@ -1,0 +1,36 @@
+
+new HeaderExchangeClient(
+    new NettyClient(
+        new MultiMessageHandler(
+            new HeartbeatHandler(
+                new AllDispatcher(
+                    new DecodeHandler(
+                        new HeaderExchangeHandler(
+                            new DubboProtocol.ExchangeHandlerAdapter()
+                        )
+                    )
+
+                )
+            )
+        )
+
+));
+
+
+
+new HeaderExchangeServer(
+    new NettyServer(
+        new MultiMessageHandler(
+            new HeartbeatHandler(
+                new AllDispatcher(
+                    new DecodeHandler(
+                        new HeaderExchangeHandler(
+                            new DubboProtocol.ExchangeHandlerAdapter()
+                        )
+                    )
+
+                )
+            )
+        )
+
+));
