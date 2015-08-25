@@ -1,20 +1,21 @@
 
-new HeaderExchangeClient(
-    new NettyClient(
-        new MultiMessageHandler(
-            new HeartbeatHandler(
-                new AllDispatcher(
-                    new DecodeHandler(
-                        new HeaderExchangeHandler(
-                            new DubboProtocol.ExchangeHandlerAdapter()
-                        )
-                    )
+new DubboInvoker(HeaderExchangeClient[]);
 
+new HeaderExchangeClient(
+        new NettyClient(
+            new MultiMessageHandler(
+                new HeartbeatHandler(
+                    new AllDispatcher(
+                        new DecodeHandler(
+                            new HeaderExchangeHandler(
+                                new DubboProtocol.ExchangeHandlerAdapter()
+                            )
+                        )
+
+                    )
                 )
             )
-        )
-
-));
+);
 
 
 
