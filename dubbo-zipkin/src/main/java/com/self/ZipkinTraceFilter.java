@@ -20,7 +20,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * zipkin trace 收集器
  * ContextFilter(order=-10000) ZipkinTraceFilter要排在ContextFilter之前
  * Created by shaojieyue on 8/27/15.
  */
@@ -177,15 +177,16 @@ public class ZipkinTraceFilter implements Filter {
         if (result == null || result.hasException()) {
             final String key = remoteHost+ ":"+ remotePort + "//" + requestName;
             StringBuilder params = new StringBuilder();
-            for (Object param : invocation.getArguments()) {
+            for (Object param : invocation.getArguments()) {//连接参数
                 params.append(param).append(",");
             }
             String message = null;
-            if (result == null) {
+            if (result == null) {//result=null 说明是超时请求
                 message = "request time out";
             }else {
                 message = result.getException().toString();
             }
+            //含有异常时,则提交调用信息
             if (providerSide) {//server端
                 //设置remote信息 server端的remote为client,client的remote为server
                 serverTracer.submitBinaryAnnotation("client."+key, message);
