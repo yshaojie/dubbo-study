@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dubbo-study</artifactId>
+        <groupId>com.self</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dubbo-zipkin</artifactId>
+    <properties>
+        <logback-classic-version>1.1.3</logback-classic-version>
+        <slf4j-version>1.7.12</slf4j-version>
+        <janino-version>2.7.8</janino-version>
+    </properties>
+    <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>com.github.kristofa</groupId>-->
+            <!--<artifactId>brave-client</artifactId>-->
+            <!--<version>2.4.2</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>log4j</artifactId>-->
+                    <!--<groupId>log4j</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.github.kristofa</groupId>
+            <artifactId>brave-zipkin-spancollector</artifactId>
+            <version>3.0.0-alpha-2-SNAPSHOT</version>
+        </dependency>
+        <!--<dependency>-->
+
+            <!--<groupId>com.github.kristofa</groupId>-->
+            <!--<artifactId>brave-impl</artifactId>-->
+            <!--<version>2.4.2</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.github.kristofa</groupId>-->
+            <!--<artifactId>brave-zipkin-spancollector</artifactId>-->
+            <!--<version>2.4.2</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubboj</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
