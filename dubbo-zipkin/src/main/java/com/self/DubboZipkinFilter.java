@@ -12,9 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -25,8 +23,8 @@ import java.util.concurrent.TimeUnit;
  * Created by shaojieyue on 8/27/15.
  */
 @Activate(group = {Constants.CONSUMER, Constants.PROVIDER},order=-5000)
-public class ZipkinTraceFilter implements Filter {
-    public static final Logger logger = LoggerFactory.getLogger(ZipkinTraceFilter.class);
+public class DubboZipkinFilter implements Filter {
+    public static final Logger logger = LoggerFactory.getLogger(DubboZipkinFilter.class);
     
     //采集trace
     public static final String SAMPLED = "0";
@@ -41,9 +39,9 @@ public class ZipkinTraceFilter implements Filter {
     private ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
     private Properties config = new Properties();
 
-    public ZipkinTraceFilter() {
+    public DubboZipkinFilter() {
         //加载资源文件
-        final InputStream resourceAsStream = ZipkinTraceFilter.class.getClassLoader().getResourceAsStream("zipkin-clollector.properties");
+        final InputStream resourceAsStream = DubboZipkinFilter.class.getClassLoader().getResourceAsStream("zipkin-clollector.properties");
         if (resourceAsStream != null) {
             try {
                 config.load(resourceAsStream);
@@ -75,8 +73,13 @@ public class ZipkinTraceFilter implements Filter {
                         }
                     }
                     collector = new ZipkinSpanCollector(zipkinCollectorHost, zipkinCollectorPort,params);
-                    serverTracer = Brave.getServerTracer(collector, Collections.EMPTY_LIST);
-                    clientTracer = Brave.getClientTracer(collector, Collections.EMPTY_LIST);
+                    List serverTraceFilterList = new ArrayList();
+                    serverTraceFilterList.add(new SimpleTraceFilter());
+
+                    List clientTraceFilterList = new ArrayList();
+                    clientTraceFilterList.add(new SimpleTraceFilter());
+                    serverTracer = Brave.getServerTracer(collector, serverTraceFilterList);
+                    clientTracer = Brave.getClientTracer(collector, clientTraceFilterList);
                     execSampled = true;
                     if (logger.isInfoEnabled()) {
                         logger.info("zipkin span collector start success");

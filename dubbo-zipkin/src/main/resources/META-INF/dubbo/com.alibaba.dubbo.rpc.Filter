@@ -1,1 +1,1 @@
-zipkin=com.self.ZipkinTraceFilter
+zipkin=com.self.DubboZipkinFilter
